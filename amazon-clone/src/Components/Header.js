@@ -2,9 +2,11 @@ import React from 'react'
 
 import styled from 'styled-components'
 
-import SearchIcon from '@material-ui/icons/Search';
-import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
+import SearchIcon from '@material-ui/icons/Search'
+import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket'
+import LocationOnIcon from '@material-ui/icons/LocationOn'
+import {Link} from 'react-router-dom'
+
 
 function Header() {
     return (
@@ -40,10 +42,15 @@ function Header() {
                     <OptionLineTwo> & Orders</OptionLineTwo>
                 </HeaderOption>
 
-                <HeaderOptionCart>
+
+              
+                <HeaderOptionCart> 
+                     <Link to= "/cart">
                     <ShoppingBasketIcon/>
                     <CartCount> 7 </CartCount> 
+                </Link>
                 </HeaderOptionCart>
+                
             </HeaderNavItems>
         </Container>
     )
@@ -150,8 +157,15 @@ padding: 10px 9px 10px 9px;
 
 const HeaderOptionCart = styled.div `
     display: flex;
-    align-items: center;
-    padding-right: 9px;
+  
+
+    a{
+        display: flex;
+        align-items: center;
+        padding-right: 9px;
+        color: white;
+        text-decoration: none;
+    }
     
 `
 
