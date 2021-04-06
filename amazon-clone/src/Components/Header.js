@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
 
 function Header() {
     return (
@@ -12,9 +13,11 @@ function Header() {
                 <img src = {"https://i.imgur.com/7I9Was5.png"} />
             </HeaderLogo>
             <HeaderOptionAddress>
-
+                <LocationOnIcon/>
+                <HeaderOption>
                 <OptionLineOne> Hello, </OptionLineOne> 
                 <OptionLineTwo> Select your address</OptionLineTwo>
+                </HeaderOption>
             </HeaderOptionAddress>
 
             <HeaderSearch>
@@ -76,6 +79,9 @@ img{
 
 const HeaderOptionAddress = styled.div `
 
+padding-left: 9px;
+display: flex;
+align-items: center;
 
 `
 
@@ -97,12 +103,22 @@ const HeaderSearch = styled.div `
   flex-grow: 1;
   height: 40px;
   border-radius: 4px;
+  overflow: hidden;
+  margin-left: 4px;
+  background-color: white;
+  :focus-within {
+      box-shadow: 0 0 0 3px #F90;
+  }
 `
 
 
 const HeaderSearchInput = styled.input `
 
 flex-grow: 1;
+border: 0;
+:focus {                                // focus=  when input is clicked....
+    outline: none;                      // does not show "blue" outline
+}
 `
 
 
@@ -112,8 +128,8 @@ background-color: #febd69;
 width: 45px;
 color: black;
 display: flex;
-align-items: center;
-justify-content: center;
+align-items: center;          // Center search icon vertically
+justify-content: center;        // Center search icon horizontally
 `
 
 
@@ -133,11 +149,15 @@ padding: 10px 9px 10px 9px;
 
 
 const HeaderOptionCart = styled.div `
-
+    display: flex;
+    align-items: center;
+    padding-right: 9px;
+    
 `
 
 
 const CartCount = styled.div `
 
+    padding-left: 4px;
 
 `
