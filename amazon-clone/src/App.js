@@ -5,10 +5,12 @@ import Cart from './Components/Cart'
 import Home from './Components/Home'
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
 
+
 function App() {
   return (
     <div className="App">
     <Router>
+   
       <Header/>
 
       
@@ -26,6 +28,7 @@ function App() {
          
           
         </Switch>
+        
       </Router>
       
   
