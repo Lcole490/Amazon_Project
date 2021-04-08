@@ -44,7 +44,7 @@ function App() {
         <Switch>
 
           <Route path ="/cart">
-           <Cart/>
+           <Cart cartItems = {cartItems}/>
           </Route>
           
           <Route path = "/">

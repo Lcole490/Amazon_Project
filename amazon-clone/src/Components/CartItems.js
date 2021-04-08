@@ -2,13 +2,25 @@ import React from 'react'
 import styled from 'styled-components'
 import CartItem from './CartItem'
 
-function CartItems() {
+function CartItems({cartItems}) {
     return (
         <Container>
             <Title>Shopping Cart</Title>
             <hr/>
             <ItemsContainer>
-              <CartItem></CartItem>
+
+                {
+                    cartItems.map((item) =>(
+                         <CartItem
+
+
+                         id = {item.id}
+                         item= {item.product}
+                         
+                         />
+                    ))
+                }
+             
             </ItemsContainer>
         </Container>
     )
@@ -30,10 +42,9 @@ padding: 20px;
 `
 
 
-const Title = styled.div `
+const Title = styled.h1 `
 
-font-size: 30px;
-font-weight: 700;
+margin-bottom: 8px;
 `
 
 const ItemsContainer = styled.div `

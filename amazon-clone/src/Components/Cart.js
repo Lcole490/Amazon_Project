@@ -5,10 +5,10 @@ import CartTotal from './CartTotal'
 
 
 
-function Cart() {
+function Cart({ cartItems }) {
     return (
         <Container>
-            <CartItems/>
+            <CartItems cartItems = {cartItems}/>
 
             
             <CartTotal/>

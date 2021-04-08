@@ -1,29 +1,29 @@
 import React from 'react'
 import styled from 'styled-components'
 
-function CartItem() {
+function CartItem({id, item}) {
     return (
         <Container>
 
             <ImageContainer>
-                <img src = {"https://images-na.ssl-images-amazon.com/images/I/619Z2AnPHmL._AC_SL1000_.jpg"}/>
+                <img src = {item.image}/>
             </ImageContainer>
 
             <CartItemInfo>
 
                 <CartItemInfoTop>
-                    <h2>HP Spectre x360 2-in-1 Touchscreen Laptop, 4K UHD 15.6</h2>
+                    <h2>{item.name}</h2>
                 </CartItemInfoTop>
                 <CartItemInfoBottom>
 
-                    <CartItemQuantityContainer> 5</CartItemQuantityContainer>
+                    <CartItemQuantityContainer> {item.quantity}</CartItemQuantityContainer>
                     <CartItemDeleteContainer>Delete</CartItemDeleteContainer>
                 </CartItemInfoBottom>
                 
             </CartItemInfo>
 
             <CartItemPrice>
-                        $1467
+                        ${item.price}
             </CartItemPrice>
             
         </Container>
