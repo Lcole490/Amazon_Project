@@ -2,19 +2,23 @@ import React from 'react'
 import styled from 'styled-components'
 
 
-function Product(props) {
+function Product({title, price, rating, image, id}) {
     return (
         <Container>
             <Title>
-               {props.title}
+               {title}
             </Title>
             <Price>
-                {props.price}
+                ${price}
             </Price>
             <Rating>
-             *****
+             {
+                 Array(rating)
+                 .fill()
+                 .map(rating => <p> 👍</p>)
+             }
             </Rating>
-            <Image src = {props.image}/>
+            <Image src = {image}/>
 
             <ActionSection>
 
@@ -59,6 +63,8 @@ margin-top: 3px;
 `
 
 const Rating = styled.div `
+
+display: flex;
 
 `
 

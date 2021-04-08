@@ -67,10 +67,7 @@ function Home() {
                         />
                     ))
                 }
-                <Product />
-                <Product />
-                <Product />
-                <Product />
+               
                    
             </Content>
         </Container>
