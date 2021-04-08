@@ -2,19 +2,19 @@ import React from 'react'
 import styled from 'styled-components'
 
 
-function Product() {
+function Product(props) {
     return (
         <Container>
             <Title>
-                Ipad Pro
+               {props.title}
             </Title>
             <Price>
-                $1549.99
+                {props.price}
             </Price>
             <Rating>
              *****
             </Rating>
-            <Image src = "https://static.bhphoto.com/images/images500x500/apple_ipad_pro_256gb_wi_fi_1592330791_1568360.jpg"/>
+            <Image src = {props.image}/>
 
             <ActionSection>
 
