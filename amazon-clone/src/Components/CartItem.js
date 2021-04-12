@@ -55,7 +55,7 @@ border-bottom: 1px solid #DDD;
 // Flex-shrink and Flex-grow 0 keeps the image the same at any screen size
 const ImageContainer = styled.div `
 flex-shrink: 0;    
-flex-grow: 0:        
+       
 width: 180px;
 height: 180px;
 margin-right: 16px;
@@ -70,6 +70,7 @@ margin-right: 16px;
 const CartItemInfo= styled.div `
 
 flex-grow: 1;
+
 `
 
 const CartItemInfoTop = styled.div `
@@ -77,6 +78,8 @@ const CartItemInfoTop = styled.div `
  h2 {
      font-size: 18px;
  }
+ 
+ 
 `
 
 const CartItemInfoBottom = styled.div `
@@ -93,11 +96,14 @@ const CartItemQuantityContainer = styled.div `
      background-color: #F0F2F2;
      padding: 8px;
      box-shadow: 0 2px 5px rgba(15,17,17, .15);
+     cursor: pointer;
  }
 
  select:focus{
      outline: none;
  }
+
+ 
 `
 
 const CartItemDeleteContainer = styled.div `

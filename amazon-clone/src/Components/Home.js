@@ -88,7 +88,7 @@ margin: auto;
 
 
 const Banner = styled.div `
-background-image: url('https://i.imgur.com/SYHeuYM.jpg');
+background-image: url('https://images-eu.ssl-images-amazon.com/images/G/31/digital/music/merch/India/2018/March/MLPBrowse/desktop/TILE_1.jpg');
 min-height: 600px;
 background-position: center;
 background-size: cover;
@@ -103,7 +103,7 @@ const Content = styled.div `
 
 padding-left: 10px;
 padding-right: 10px;
-margin-top: -350px;
+margin-top: -300px;
 display: flex;
 z-index: 100;
 `
