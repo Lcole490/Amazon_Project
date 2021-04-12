@@ -6,6 +6,15 @@ import CartTotal from './CartTotal'
 
 
 function Cart({ cartItems }) {
+
+    const getTotalPrice = () => {
+        let total = 0;
+        cartItems.forEach((item) => {
+            total += (item.product.price * item.product.quantity)
+        })
+
+        return total;
+    }
     return (
         <Container>
             <CartItems cartItems = {cartItems}/>
@@ -26,5 +35,6 @@ export default Cart
 const Container = styled.div `
 
 display: flex;
-padding: 14px 18px 0px 18px
+padding: 14px 18px 0px 18px;
+align-items: flex-start;
 `

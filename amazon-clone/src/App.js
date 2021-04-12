@@ -38,7 +38,7 @@ function App() {
     <div className="App">
     <Router>
    
-      <Header/>
+      <Header cartItems = {cartItems}/>
 
       
         <Switch>
