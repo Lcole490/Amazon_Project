@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import NumberFormat from 'react-number-format'
 
 function CartItem({id, item}) {
 
@@ -31,8 +32,8 @@ function CartItem({id, item}) {
                 
             </CartItemInfo>
 
-            <CartItemPrice>
-                        ${item.price}
+            <CartItemPrice >
+                        <NumberFormat value ={item.price} displayType={'text'} thousandSeparator={true} prefix={"$"}/>
             </CartItemPrice>
             
         </Container>

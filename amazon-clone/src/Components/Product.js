@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { db } from '../firebase'
+import NumberFormat from 'react-number-format'
 
 
 function Product({title, price, rating, image, id}) {
@@ -33,7 +34,7 @@ function Product({title, price, rating, image, id}) {
                {title}
             </Title>
             <Price>
-                ${price}
+            <NumberFormat value ={price} displayType={'text'} thousandSeparator={true} prefix={"$"}/>
             </Price>
             <Rating>
              {
