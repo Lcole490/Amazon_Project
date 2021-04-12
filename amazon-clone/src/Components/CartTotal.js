@@ -1,10 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 
-function CartTotal() {
+function CartTotal({getTotalPrice, getCount}) {
+
+
+
+    
     return (
         <Container>
-            <h2>Subtotal (2 items ): $2,100</h2>
+            <h2>Subtotal ( {getCount()} items ): ${getTotalPrice()}</h2>
             <CheckoutButton>Proceed to Checkout</CheckoutButton>
         </Container>
     )
