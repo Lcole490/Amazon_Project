@@ -7,11 +7,12 @@ import Login from './Components/Login'
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
 import {useState, useEffect} from 'react'
 import { db } from './firebase'
+import styled from 'styled-components'
 
 
 function App() {
 
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState(null)
   const [cartItems, setCartItems] = useState([]);
 
   const getCartItems = () => {
@@ -36,17 +37,21 @@ function App() {
   console.log(cartItems)
 
   return (
-    <div className="App">
+  
     <Router>
-   
+      {
+        !user ? (
+          <Login setUser = {setUser}/>
+        ) : (
+          
+     
+            <Container>
       <Header user = {user} cartItems = {cartItems}/>
 
       
         <Switch>
 
-          <Route path = "/login">
-            <Login setUser = {setUser}/>
-          </Route>
+        
 
           <Route path ="/cart">
            <Cart cartItems = {cartItems}/>
@@ -60,12 +65,19 @@ function App() {
          
           
         </Switch>
-        
+</Container>
+)
+}
+
       </Router>
       
   
-    </div>
+    
   );
 }
 
+
+const Container = styled.div `
+
+`
 export default App;
