@@ -11,7 +11,7 @@ import { db } from './firebase'
 
 function App() {
 
-
+  const [user, setUser] = useState({})
   const [cartItems, setCartItems] = useState([]);
 
   const getCartItems = () => {
@@ -39,13 +39,13 @@ function App() {
     <div className="App">
     <Router>
    
-      <Header cartItems = {cartItems}/>
+      <Header user = {user} cartItems = {cartItems}/>
 
       
         <Switch>
 
           <Route path = "/login">
-            <Login />
+            <Login setUser = {setUser}/>
           </Route>
 
           <Route path ="/cart">
