@@ -1,12 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
-import Header from './Components/Header';
+
+import './App.css'
+import Header from './Components/Header'
 import Cart from './Components/Cart'
 import Home from './Components/Home'
 import Login from './Components/Login'
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
 import {useState, useEffect} from 'react'
-import { db } from './firebase'
+import { db, auth } from './firebase'
 import styled from 'styled-components'
 
 
@@ -27,6 +27,13 @@ function App() {
 
   }
 
+  const signOut = () =>{
+
+    auth.signOut().then(()=>{
+      setUser(null)
+    })
+
+  }
 
   useEffect(()=>{
 
@@ -35,6 +42,7 @@ function App() {
   }, [])   //    UseEffect runs the function upon loading of page,
 
   console.log(cartItems)
+
 
   return (
   
@@ -46,7 +54,10 @@ function App() {
           
      
             <Container>
-      <Header user = {user} cartItems = {cartItems}/>
+      <Header 
+      user = {user}
+      cartItems = {cartItems}
+      signOut = {signOut}/>
 
       
         <Switch>
@@ -75,6 +86,11 @@ function App() {
     
   );
 }
+
+
+
+
+//    ***************************************************** S T Y L E D _ _ C O M P O N E N T S _ _ S E C T I O N **************************************************************
 
 
 const Container = styled.div `
