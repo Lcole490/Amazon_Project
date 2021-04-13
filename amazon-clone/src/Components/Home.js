@@ -5,17 +5,18 @@ import { db } from '../firebase'
 
 function Home() {
 
-    const [products, setProducts] = useState([]) 
+    const [products, setProducts] = useState([])           // sets up state for products incorporated on app
 
 
-    const getProducts = () => {
+    const getProducts = () => {                                 // function that gets the products from the db
 
-        db.collection('products').onSnapshot((snapshot) =>{
-            let tempProducts = [];
+        db.collection('products').onSnapshot((snapshot) =>{                 // this a call to the db's "products" collection to gather the current snapshot of live data
+
+            let tempProducts = [];                                  // Placeholder array to hold object info that will be retrieved from database
 
             console.log(snapshot);
             
-            tempProducts = snapshot.docs.map((doc) => (
+            tempProducts = snapshot.docs.map((doc) => (             // map through all objects in database and store id along with product data
             
             {
                 id: doc.id,
@@ -28,7 +29,7 @@ function Home() {
 
            
 
-            setProducts(tempProducts);
+            setProducts(tempProducts);                  // Set the current state of products to information retrieved from db
         
 
 
@@ -47,17 +48,17 @@ function Home() {
 
     return (
         <Container>
-            <Banner>
+            <Banner>                          {/* Banner component represents area where Amazon image banner is */}
 
             </Banner>
 
-            <Content>
+            <Content>                        {/* Content component represents main area where product cards will be displayed*/}
 
 
                 {
 
-                    products.map((data)=>(
-                        <Product
+                    products.map((data)=>(                      // map through data (products) and collect information
+                        <Product                                // information from products to be passed to Product component
 
                         title = {data.product.name}
                         price = {data.product.price}
@@ -76,6 +77,14 @@ function Home() {
 }
 
 export default Home
+
+
+
+
+
+//    ***************************************************** S T Y L E D _ _ C O M P O N E N T S _ _ S E C T I O N **************************************************************
+
+
 
 
 

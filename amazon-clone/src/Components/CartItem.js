@@ -3,29 +3,29 @@ import styled from 'styled-components'
 import NumberFormat from 'react-number-format'
 import { db } from '../firebase';
 
-function CartItem({id, item}) {
+function CartItem({id, item}) {                     // CartItem component initialized with props from cardItems component for use below
 
-    const deleteItem = (e) =>{
-        e.preventDefault()
-        db.collection('cartItems').doc(id).delete();
+    const deleteItem = (e) =>{                              // function that allows for deleting cart item 
+        e.preventDefault()                              // prevents refresh
+        db.collection('cartItems').doc(id).delete();            // DELETE method that deletes the specific data with ID from "cartItems" collection of db  (e is event and will be tied to a value below)
     }
 
-    let options = [];
+    let options = [];                       // Initialize array to populate the option choices for the quantity select
 
-    for (let i = 1; i<Math.max(item.quantity+1, 20); i++){
-        options.push(<option value = {i}> Qty: {i}</option>)
+    for (let i = 1; i<Math.max(item.quantity+1, 20); i++){                  // loop to populate max of 20 value options for select button below
+        options.push(<option value = {i}> Qty: {i}</option>)                // pushes option value into options array
     }
 
-    const changeQuantity = (newQuantity) => {
-        db.collection('cartItems').doc(id).update({
-            quantity: parseInt(newQuantity)
+    const changeQuantity = (newQuantity) => {                   // Function to allow user to change quantity selected when on cartItems page
+        db.collection('cartItems').doc(id).update({             // UPDATE method that changes the quantity of a specific document with unique id with what user selects from options
+            quantity: parseInt(newQuantity)                 // quantity now becomes the value of the newQuantity as selected by user. the tie-in for this is the onChange below
         })
     }
     return (
         <Container>
 
             <ImageContainer>
-                <img src = {item.image}/>
+                <img src = {item.image}/>                   {/*  Display image of item in cart*/}
             </ImageContainer>
 
             <CartItemInfo>
@@ -36,15 +36,17 @@ function CartItem({id, item}) {
                 <CartItemInfoBottom>
 
                     <CartItemQuantityContainer> 
-                        <select 
+                        <select                     // HTML tag to generate select drop menu which houses the options with increasing values
                         
-                        value = {item.quantity} onChange = {(e)=>changeQuantity(e.target.value)}>{options}
+                        value = {item.quantity}         // Initially sets the value shown on the select drop to the quantity
+                        
+                        onChange = {(e)=>changeQuantity(e.target.value)}>{options}          {/* When user changes the option on the select menu, the value at the target selected becomes the new quantity */}
                        
                         </select>
                       
                         </CartItemQuantityContainer>
                     <CartItemDeleteContainer 
-                    onClick = {deleteItem}>
+                    onClick = {deleteItem}>                 {/* onClick triggers deleteItem function and deletes the item from cart */}
                         Delete
                         
                         </CartItemDeleteContainer>
@@ -53,7 +55,7 @@ function CartItem({id, item}) {
             </CartItemInfo>
 
             <CartItemPrice >
-                        <NumberFormat value ={item.price} displayType={'text'} thousandSeparator={true} prefix={"$"}/>
+                        <NumberFormat value ={item.price} displayType={'text'} thousandSeparator={true} prefix={"$"}/>  
             </CartItemPrice>
             
         </Container>
@@ -61,6 +63,16 @@ function CartItem({id, item}) {
 }
 
 export default CartItem
+
+
+
+
+//    ***************************************************** S T Y L E D _ _ C O M P O N E N T S _ _ S E C T I O N **************************************************************
+
+
+
+
+
 
 
 

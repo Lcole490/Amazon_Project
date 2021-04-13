@@ -6,10 +6,10 @@ import { auth, provider} from '../firebase'
 
 function Login({setUser}) {
 
-    const signIn = ()=>{
-        auth.signInWithPopup(provider).then((result)=>{
-            let user = result.user;
-            let newUser = {
+    const signIn = ()=>{                            // Function used to sign in to app
+        auth.signInWithPopup(provider).then((result)=>{                 // portion is from firebase documentation... provides a popup sign in authorized against the online service
+            let user = result.user;                 // 
+            let newUser = {                     // initializing newUser object from user information when logged in with provider
                 name: user.displayName,
                 email: user.email,
                 photo: user.photoURL
@@ -17,7 +17,7 @@ function Login({setUser}) {
 
             setUser(newUser);
             
-        }).catch((error)=>{
+        }).catch((error)=>{                     // If an error is caught or occurs, there is a message sent as an alert
             alert(error.message);
         })
     }
@@ -26,7 +26,7 @@ function Login({setUser}) {
                 <Content>
                     <AmazonLogo src = "http://media.corporate-ir.net/media_files/IROL/17/176060/Oct18/Amazon%20logo.PNG"/>
                     <h1> Sign into Amazon</h1>
-                    <LoginButton onClick ={signIn}>
+                    <LoginButton onClick ={signIn}>     {/*onClick event of button triggers signIn function that has been passed into this component*/}
                         Sign in With Google
                     </LoginButton>
 
@@ -38,6 +38,14 @@ function Login({setUser}) {
 }
 
 export default Login
+
+
+
+
+
+//    ***************************************************** S T Y L E D _ _ C O M P O N E N T S _ _ S E C T I O N **************************************************************
+
+
 
 
 

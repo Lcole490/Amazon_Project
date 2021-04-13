@@ -4,21 +4,21 @@ import { db } from '../firebase'
 import NumberFormat from 'react-number-format'
 
 
-function Product({title, price, rating, image, id}) {
+function Product({title, price, rating, image, id}) {                    // Note the props that have been passed into the Product component for use within component below
 
-    const addToCart = () => {
+    const addToCart = () => {                                       // function that adds selected product to the cartItem component
 
         console.log(id);
-        const cartItem = db.collection("cartItems").doc(id);
-        cartItem.get()
+        const cartItem = db.collection("cartItems").doc(id);            // cartItem is associated or matched with correct id in db
+        cartItem.get()                                              // GET method is used to retrieve specific cartItem by id
         .then((doc)=>{
             console.log(doc.exist);
-            if(doc.exists){
-                cartItem.update({
+            if(doc.exists){                                         // if the item to be added has been previously added to the cart or already exists as a document in the "cartItems" collection , only the quantity is updated in the db
+                cartItem.update({                                   // UPDATE Method
                     quantity: doc.data().quantity + 1
                 })
             } else{
-                db.collection("cartItems").doc(id).set({
+                db.collection("cartItems").doc(id).set({            // Otherwise the a new document is saved to the database's "cartItems" colection with a unique id
                     name: title,
                     image: image,
                     price: price,
@@ -34,7 +34,7 @@ function Product({title, price, rating, image, id}) {
                {title}
             </Title>
             <Price>
-            <NumberFormat value ={price} displayType={'text'} thousandSeparator={true} prefix={"$"}/>
+            <NumberFormat value ={price} displayType={'text'} thousandSeparator={true} prefix={"$"}/>   {/* Number format component is solely for displaying price in usual monetary format with ","*/}
             </Price>
             <Rating>
              {
@@ -50,7 +50,7 @@ function Product({title, price, rating, image, id}) {
 
            
             <AddToCartButton
-                onClick = {addToCart}>
+                onClick = {addToCart}>              {/* adds on click event to cart button, triggering add to cart function*/}
 
                 Add to Cart
             </AddToCartButton> 
@@ -61,6 +61,16 @@ function Product({title, price, rating, image, id}) {
 }
 
 export default Product
+
+
+
+
+
+
+
+//    ***************************************************** S T Y L E D _ _ C O M P O N E N T S _ _ S E C T I O N **************************************************************
+
+
 
 
 

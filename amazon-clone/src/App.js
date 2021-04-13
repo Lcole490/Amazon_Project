@@ -10,10 +10,10 @@ import { db, auth } from './firebase'
 import styled from 'styled-components'
 
 
-function App() {
+function App() {            // App is the main component. here is page names, order, and link structure are set
 
-  const [user, setUser] = useState(null)
-  const [cartItems, setCartItems] = useState([]);
+  const [user, setUser] = useState(null)            // Set up state to track user. The use of null empties state intially
+  const [cartItems, setCartItems] = useState([]);         // Initialize 
 
   const getCartItems = () => {
     db.collection('cartItems').onSnapshot((snapshot) => {

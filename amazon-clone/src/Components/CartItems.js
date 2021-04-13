@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import CartItem from './CartItem'
 
-function CartItems({cartItems}) {
+function CartItems({cartItems}) {                 
     return (
         <Container>
             <Title>Shopping Cart</Title>
@@ -10,8 +10,10 @@ function CartItems({cartItems}) {
             <ItemsContainer>
 
                 {
-                    cartItems.map((item) =>(
-                         <CartItem
+                    cartItems.map((item) =>(                   // map through cartItems and for each item in the art generate a CartItem component
+
+
+                         <CartItem                              // Cart Item component with id and product information to be passed down for access
 
 
                          id = {item.id}
@@ -27,6 +29,17 @@ function CartItems({cartItems}) {
 }
 
 export default CartItems
+
+
+
+
+
+
+//    ***************************************************** S T Y L E D _ _ C O M P O N E N T S _ _ S E C T I O N **************************************************************
+
+
+
+
 
 
 

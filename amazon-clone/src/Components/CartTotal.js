@@ -2,16 +2,16 @@ import React from 'react'
 import styled from 'styled-components'
 import NumberFormat from 'react-number-format'
 
-function CartTotal({getTotalPrice, getCount}) {
+function CartTotal({getTotalPrice, getCount}) {                     // Initializing CartTotal component with props passed in to be used below
 
 
 
     
     return (
         <Container>
-            <Subtotal>Subtotal ( {getCount()} items ):  
+            <Subtotal>Subtotal ( {getCount()} items ):                       {/*Populates subtotal section with the number of items*/}
              
-            <NumberFormat value = {getTotalPrice()} displayType={'text'} thousandSeparator={true} prefix={"$"}/>
+            <NumberFormat value = {getTotalPrice()} displayType={'text'} thousandSeparator={true} prefix={"$"}/>         
             
             
             </Subtotal>
@@ -21,6 +21,14 @@ function CartTotal({getTotalPrice, getCount}) {
 }
 
 export default CartTotal
+
+
+
+
+
+//    ***************************************************** S T Y L E D _ _ C O M P O N E N T S _ _ S E C T I O N **************************************************************
+
+
 
 
 

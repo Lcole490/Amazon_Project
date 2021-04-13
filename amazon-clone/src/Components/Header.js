@@ -8,36 +8,36 @@ import LocationOnIcon from '@material-ui/icons/LocationOn'
 import {Link} from 'react-router-dom'
 
 
-function Header({cartItems, user, signOut}) {
+function Header({cartItems, user, signOut}) {                   // Component for navbar with props passed in for use within this component
 
-    const getCount =() => {
+    const getCount =() => {                                 // Function used to keep count of quantity of all items in cart
         let count = 0;
         // Loop through all cart items
 
-        cartItems.forEach((item)=>{
+        cartItems.forEach((item)=>{                         // for Each item , get the quantity and add it to the running count
 
             // Add quantity of cart item to total
             count += item.product.quantity;
         })
         
-        return count;
+        return count;                                   // return the value of the count or total from the function to be used or displayed below
     }
     return (
         <Container>
-            <HeaderLogo>
+            <HeaderLogo>                                
                 <Link to = "/">
-                <img src = {"https://i.imgur.com/7I9Was5.png"} />
+                <img src = {"https://i.imgur.com/7I9Was5.png"} />    {/*Amazon logo on navbar and links to home page when clicked*/}
                 </Link>
             </HeaderLogo>
             <HeaderOptionAddress>
                 <LocationOnIcon/>
                 <HeaderOption >
                 <OptionLineOne> Hello, </OptionLineOne> 
-                <OptionLineTwo> Select your address</OptionLineTwo>
+                <OptionLineTwo> Select your address</OptionLineTwo>    {/* Location welcome option on navbar (Future scope: use geolocation to populate dynamically)*/}
                 </HeaderOption>
             </HeaderOptionAddress>
 
-            <HeaderSearch>
+            <HeaderSearch>                               {/*Search bar (not functional currently*/}
                 <HeaderSearchInput type='text'/>
                 <HeaderSearchIconContainer>
                     <SearchIcon/>
@@ -45,7 +45,7 @@ function Header({cartItems, user, signOut}) {
             </HeaderSearch>
  
             <HeaderNavItems>
-                <HeaderOption onClick={signOut}>
+                <HeaderOption onClick={signOut}>                     {/*When clicked, the signOut function is executed  */}
                 <OptionLineOne> Hello, {user.name}</OptionLineOne>
 
                 <OptionLineTwo> Account & Lists </OptionLineTwo>
@@ -61,8 +61,8 @@ function Header({cartItems, user, signOut}) {
               
                 <HeaderOptionCart> 
                      <Link to= "/cart">
-                    <ShoppingBasketIcon/>
-                    <CartCount> {getCount()} </CartCount> 
+                    <ShoppingBasketIcon/>                {/*Icon for shopping cart from material ui icons import*/}
+                    <CartCount> {getCount()} </CartCount>     {/*Houses the cart items count*/}
                 </Link>
                 </HeaderOptionCart>
                 
