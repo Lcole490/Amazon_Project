@@ -12,7 +12,7 @@ import styled from 'styled-components'
 
 function App() {            // App is the main component. here is page names, order, and link structure are set
 
-  const [user, setUser] = useState(null)            // Set up state to track user. The use of null empties state intially
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')))            // Set up state to track user. 
   const [cartItems, setCartItems] = useState([]);         // Initialize 
 
   const getCartItems = () => {

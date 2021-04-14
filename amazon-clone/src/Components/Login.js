@@ -14,7 +14,7 @@ function Login({setUser}) {
                 email: user.email,
                 photo: user.photoURL
             }
-
+                localStorage.setItem('user', JSON.stringify(newUser))
             setUser(newUser);
             
         }).catch((error)=>{                     // If an error is caught or occurs, there is a message sent as an alert
