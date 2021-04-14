@@ -12,7 +12,7 @@ import styled from 'styled-components'
 
 function App() {            // App is the main component. here is page names, order, and link structure are set
 
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')))            // Set up state to track user. 
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')))            // Set up state to track user. user is saved to local storage so that data persists on screen refresh
   const [cartItems, setCartItems] = useState([]);         // Initialize 
 
   const getCartItems = () => {
@@ -30,6 +30,7 @@ function App() {            // App is the main component. here is page names, or
   const signOut = () =>{
 
     auth.signOut().then(()=>{
+      localStorage.removeItem('user')
       setUser(null)
     })
 
